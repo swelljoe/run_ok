@@ -1,5 +1,5 @@
 # run_ok
-Run, OK? is a shell function to run a function with pretty output. It produces a Unicode checkmark or X if the shell supports it (we don't check the terminal, but terminals seem to be more likely to support it than shells), and an "OK!" or "ERROR" otherwise. They will be green, and red, respectively, assuming the terminal supports color and the palette being used has reasonable greenish and reddish colors in the right places.
+Run, OK? is a shell function to run a function or command with pretty output. It produces a Unicode checkmark or X if the shell supports it (we don't check the terminal, but terminals seem to be more likely to support it than shells), and an "OK!" or "ERROR" otherwise. They will be green, and red, respectively, assuming the terminal supports color and the palette being used has reasonable greenish and reddish colors in the right places.
 
 It is expected to work in reasonably modern bash and dash. I will try to test occasionally on FreeBSD Bourne sh, but right now, I can't make FreeBSD run in Vagrant for more than a few seconds.
 
