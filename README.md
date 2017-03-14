@@ -5,7 +5,7 @@ It is expected to work in bash and dash. I will try to test occasionally on Free
 
 # What's it look like?
 
-![run_ok demo]((http://i.imgur.com/7gcOilK.gif)
+![run_ok demo](http://i.imgur.com/7gcOilK.gif)
 
 # Usage
 
