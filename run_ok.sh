@@ -28,7 +28,7 @@ else
         NORMAL=''
 fi
 
-log="run.log"
+RUN_LOG="run.log"
 
 # Check for unicode support in the shell
 # This is a weird function, but seems to work. Checks to see if a unicode char can be
@@ -68,31 +68,31 @@ run_ok () {
         CHECK='\u2714'
         BALLOT_X='\u2718'
 	(spinner &)
-        eval ${cmd} >> ${log}
+        eval ${cmd} >> ${RUN_LOG}
         local res=$?
 	touch stopspinning
 	while [ -f stopspinning ]; do
 		sleep .2 # It's possible to have a race for stdout and spinner clobbering the next bit
 	done
 	# Log what we were supposed to be running
-	printf "$msg: " >> ${log}
+	printf "$msg: " >> ${RUN_LOG}
         if shell_has_unicode; then
                 if [ $res -eq 0 ]; then
-			printf "Success.\n" >> ${log}
+			printf "Success.\n" >> ${RUN_LOG}
                         env printf "${GREENBG}[  ${CHECK}  ]${NORMAL}\n"
                         return 0
                 else
-			printf "Failed with error: ${res}\n" >> ${log}
+			printf "Failed with error: ${res}\n" >> ${RUN_LOG}
                         env printf "${REDBG}[  ${BALLOT_X}  ]${NORMAL}\n"
                         return $?
                 fi
         else
                 if [ $res -eq 0 ]; then
-			printf "Success.\n" >> ${log}
+			printf "Success.\n" >> ${RUN_LOG}
                         env printf "${GREENBG}[ OK! ]${NORMAL}\n"
                         return 0
                 else
-			printf "Failed with error: ${res}\n" >> ${log}
+			printf "Failed with error: ${res}\n" >> ${RUN_LOG}
                         env printf "${REDBG}[ERROR]${NORMAL}\n"
                         return $?
                 fi
