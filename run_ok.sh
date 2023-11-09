@@ -84,7 +84,7 @@ run_ok () {
                 else
 			printf "Failed with error: ${res}\n" >> ${RUN_LOG}
                         env printf "${REDBG}[  ${BALLOT_X}  ]${NORMAL}\n"
-                        return $?
+                        return $res
                 fi
         else
                 if [ $res -eq 0 ]; then
@@ -94,7 +94,7 @@ run_ok () {
                 else
 			printf "Failed with error: ${res}\n" >> ${RUN_LOG}
                         env printf "${REDBG}[ERROR]${NORMAL}\n"
-                        return $?
+                        return $res
                 fi
         fi
 }
